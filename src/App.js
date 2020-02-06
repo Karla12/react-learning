@@ -1,24 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ShowName from './ShowName';
+import HomeHead from './HomeHead';
+import HomeTitle from './HomeTitle';
+
+const title = 'Funcional Components';
+const userName = [
+  'Evelyn', 'Karla', 'Vinco', 'Orbis'
+];
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <HomeTitle
+          title={title}
+        />
       </header>
+      <div>
+        {userName && userName.length
+          ? <ShowName
+              name={userName}
+            />
+          : <HomeHead
+              logo={logo}
+            />
+        }
+      </div>
     </div>
   );
 }
