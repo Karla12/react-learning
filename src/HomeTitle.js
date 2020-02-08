@@ -1,7 +1,12 @@
 import React from 'react';
 
-function HomeTitle(title) {
-	return <h2>Hello, my name is {title.title}</h2>;
+class HomeTitle extends React.Component {
+
+  	render() {
+    	return (
+			<h2>Hello, my name is {this.props.title}</h2>
+		);
+	}
 }
 
 export default HomeTitle;
