@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
-function HomeHead(logo) {
-	return (
-		<div className="App">
-		<img src={logo.logo} className="App-logo" alt="logo" />
+class HomeHead extends React.Component {
+
+  render() {
+    return (
+    <div className="App">
+    <img src={this.props.logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,7 +19,8 @@ function HomeHead(logo) {
           Learn React
         </a>
         </div>
-	);
+    );
+  }
 }
 
 export default HomeHead;

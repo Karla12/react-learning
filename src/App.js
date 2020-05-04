@@ -5,7 +5,7 @@ import ShowName from './ShowName';
 import HomeHead from './HomeHead';
 import HomeTitle from './HomeTitle';
 
-const title = 'Funcional Components';
+const title = 'Class Components';
 const userName = [
   'Evelyn', 'Karla', 'Vinco', 'Orbis'
 ];
