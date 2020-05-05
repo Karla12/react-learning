@@ -5,7 +5,8 @@ class HomeTitle extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { name: 'primer estado', hover: false };
+		this.state = { name: 'primer estado', hover: false, backgroundname: 'Cambiar background', colordefault: '' };
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -34,8 +35,18 @@ class HomeTitle extends React.Component {
 		}
 	}
 
+	handleClick() {
+		const hexa = '#'+Math.floor(Math.random()*16777215).toString(16);;
+
+		document.body.style.background = hexa;
+
+		this.setState({
+			backgroundname: hexa
+		});
+	}
+
   	render() {
-  		const { name } = this.state;
+  		const { name, backgroundname } = this.state;
   		console.log(name);
     	return (
     		<div>
@@ -44,6 +55,13 @@ class HomeTitle extends React.Component {
 				onMouseEnter={() => this.setState({ hover: !this.state.hover })}
 				onMouseLeave={() => this.setState({ hover: !this.state.hover })} >
           		{this.state.name}
+        	</Button>
+        	<br />
+        	<br />
+        	<br />
+        	<Button variant="contained" color="primary"
+				onClick={this.handleClick}>
+          		{backgroundname}
         	</Button>
         	</div>
 		);
