@@ -1,12 +1,11 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-class HomeTitle extends React.Component {
+class LifeCycles extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { name: 'primer estado', hover: false, backgroundname: 'Cambiar background', colordefault: '' };
-		this.handleClick = this.handleClick.bind(this);
+		this.state = { name: 'primer estado', hover: false };
 	}
 
 	componentDidMount() {
@@ -35,37 +34,24 @@ class HomeTitle extends React.Component {
 		}
 	}
 
-	handleClick() {
-		const hexa = '#'+Math.floor(Math.random()*16777215).toString(16);;
-
-		document.body.style.background = hexa;
-
-		this.setState({
-			backgroundname: hexa
-		});
-	}
-
   	render() {
-  		const { name, backgroundname } = this.state;
+  		const { name } = this.state;
+  		const { title } = this.props;
   		console.log(name);
     	return (
     		<div>
-			<h2>Hello, my name is {this.props.title}</h2>
+    		<header className="App-header">
+				<h2>Hello, my name is {title}</h2><br />
+				<p>Mouse over the button and see your console.</p>
+			</header><br />
 			<Button variant="contained" color="primary"
 				onMouseEnter={() => this.setState({ hover: !this.state.hover })}
-				onMouseLeave={() => this.setState({ hover: !this.state.hover })} >
-          		{this.state.name}
-        	</Button>
-        	<br />
-        	<br />
-        	<br />
-        	<Button variant="contained" color="primary"
-				onClick={this.handleClick}>
-          		{backgroundname}
+				onMouseLeave={() => this.setState({ hover: this.state.hover })} >
+          		{name}
         	</Button>
         	</div>
 		);
 	}
 }
 
-export default HomeTitle;
+export default LifeCycles;
