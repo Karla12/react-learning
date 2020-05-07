@@ -6,21 +6,36 @@ import FunctionalComponent from './FunctionalComponent';
 import LifeCycles from './LifeCycles';
 import HandlingEvents from './HandlingEvents';
 import UserCard from './UserCard';
+import ControlledComponent from './ControlledComponent';
 
 class Home extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      name: 'primer estado'
+      name: 'primer estado',
+      data: []
     };
     this.handleChangeOption = this.handleChangeOption.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
   handleChangeOption(option) {
     this.setState({
       name: option
     });
+
+    if (option === 'ctrlc' || option === 'cr') {
+      this.fetchData();
+    }
+  }
+
+  fetchData(){
+    fetch('https://jsonplaceholder.typicode.com/users/1/posts')
+      .then(response => response.json())
+      .then(json =>
+        this.setState({ data: json })
+      );
   }
 
   render() {
@@ -29,13 +44,15 @@ class Home extends React.Component {
     const title_lc = 'Life Cycles Component';
     const title_he = 'Handling Events Component';
     const title_cr = 'Conditional Rendering Component - Array and Keys';
+    const title_ctrlc = 'Controlled Components';
 
     const userName = [
       'Evelyn', 'Karla', 'Vinco', 'Orbis'
     ];
 
     const {
-      name
+      name,
+      data
     } = this.state;
 
     const start = (
@@ -86,6 +103,13 @@ class Home extends React.Component {
                     onClick={() => this.handleChangeOption('cr')}
                   >
                     Conditional Rendering - Array and Keys
+                  </Link><br />
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => this.handleChangeOption('ctrlc')}
+                  >
+                    Controlled Components
                   </Link><br />
                   <a
                   className="App-link"
@@ -141,7 +165,17 @@ class Home extends React.Component {
             {start}<br />
               <UserCard
                 title={title_cr}
-                users={userName}
+                users={data}
+              />
+          </div>
+        );
+      case 'ctrlc':
+        return (
+          <div>
+            {start}<br />
+              <ControlledComponent
+                title={title_ctrlc}
+                users={data}
               />
           </div>
         );
