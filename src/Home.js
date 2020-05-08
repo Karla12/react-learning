@@ -14,9 +14,12 @@ class Home extends React.Component {
     super(props);
     this.state = {
       name: 'primer estado',
-      data: []
+      data: [],
+      value: '',
+      textSelect: 'Select item:'
     };
     this.handleChangeOption = this.handleChangeOption.bind(this);
+    this.handleChangeSelectOption = this.handleChangeSelectOption.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
 
@@ -28,6 +31,13 @@ class Home extends React.Component {
     if (option === 'ctrlc' || option === 'cr') {
       this.fetchData();
     }
+  }
+
+  handleChangeSelectOption(valueSelect) {
+    this.setState({
+      value: valueSelect,
+      textSelect: 'Text selected: '
+    });
   }
 
   fetchData(){
@@ -52,7 +62,9 @@ class Home extends React.Component {
 
     const {
       name,
-      data
+      data,
+      textSelect,
+      value
     } = this.state;
 
     const start = (
@@ -176,6 +188,9 @@ class Home extends React.Component {
               <ControlledComponent
                 title={title_ctrlc}
                 users={data}
+                handleChangeSelectOption={this.handleChangeSelectOption}
+                titleSelect={textSelect}
+                value={value}
               />
           </div>
         );
