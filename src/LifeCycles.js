@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-class HomeTitle extends React.Component {
+class LifeCycles extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -36,18 +36,22 @@ class HomeTitle extends React.Component {
 
   	render() {
   		const { name } = this.state;
+  		const { title } = this.props;
   		console.log(name);
     	return (
     		<div>
-			<h2>Hello, my name is {this.props.title}</h2>
+    		<header className="App-header">
+				<h2>Hello, my name is {title}</h2><br />
+				<p>Mouse over the button and see your console.</p>
+			</header><br />
 			<Button variant="contained" color="primary"
 				onMouseEnter={() => this.setState({ hover: !this.state.hover })}
-				onMouseLeave={() => this.setState({ hover: !this.state.hover })} >
-          		{this.state.name}
+				onMouseLeave={() => this.setState({ hover: this.state.hover })} >
+          		{name}
         	</Button>
         	</div>
 		);
 	}
 }
 
-export default HomeTitle;
+export default LifeCycles;
