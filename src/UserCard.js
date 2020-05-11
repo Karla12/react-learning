@@ -14,26 +14,15 @@ class UserCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      duplicate: false,
-      data: []
+      duplicate: false
     };
     this.handleDuplicate = this.handleDuplicate.bind(this);
-    this.fetchData = this.fetchData.bind(this);
   }
 
   handleDuplicate() {
     this.setState({
       duplicate: true
     });
-    this.fetchData();
-  }
-
-  fetchData(){
-    fetch('https://jsonplaceholder.typicode.com/users/1/posts')
-      .then(response => response.json())
-      .then(json =>
-        this.setState({ data: json })
-      );
   }
 
   render () {
@@ -45,8 +34,7 @@ class UserCard extends React.Component {
     });
 
     const {
-      duplicate,
-      data
+      duplicate
     } = this.state;
 
     const {
@@ -74,8 +62,8 @@ class UserCard extends React.Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {duplicate && Object.keys(data).length &&
-                  Object.values(data).map((value) => {
+                {duplicate && Object.keys(users).length &&
+                  Object.values(users).map((value) => {
                       return (
                         <TableRow key={value.id}>
                           <TableCell component="th" scope="row">{value.id}</TableCell>
