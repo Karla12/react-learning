@@ -7,6 +7,7 @@ import LifeCycles from './LifeCycles';
 import HandlingEvents from './HandlingEvents';
 import UserCard from './UserCard';
 import ControlledComponent from './ControlledComponent';
+import CompositionComponents from './CompositionComponents';
 
 class Home extends React.Component {
 
@@ -14,9 +15,12 @@ class Home extends React.Component {
     super(props);
     this.state = {
       name: 'primer estado',
-      data: []
+      data: [],
+      value: '',
+      textSelect: 'Select item:'
     };
     this.handleChangeOption = this.handleChangeOption.bind(this);
+    this.handleChangeSelectOption = this.handleChangeSelectOption.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
 
@@ -28,6 +32,13 @@ class Home extends React.Component {
     if (option === 'ctrlc' || option === 'cr') {
       this.fetchData();
     }
+  }
+
+  handleChangeSelectOption(valueSelect) {
+    this.setState({
+      value: valueSelect,
+      textSelect: 'Text selected: '
+    });
   }
 
   fetchData(){
@@ -45,6 +56,7 @@ class Home extends React.Component {
     const title_he = 'Handling Events Component';
     const title_cr = 'Conditional Rendering Component - Array and Keys';
     const title_ctrlc = 'Controlled Components';
+    const title_cofc = 'Composition Components';
 
     const userName = [
       'Evelyn', 'Karla', 'Vinco', 'Orbis'
@@ -52,7 +64,9 @@ class Home extends React.Component {
 
     const {
       name,
-      data
+      data,
+      textSelect,
+      value
     } = this.state;
 
     const start = (
@@ -110,6 +124,13 @@ class Home extends React.Component {
                     onClick={() => this.handleChangeOption('ctrlc')}
                   >
                     Controlled Components
+                  </Link><br />
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => this.handleChangeOption('cofc')}
+                  >
+                    Composition of components
                   </Link><br />
                   <a
                   className="App-link"
@@ -176,7 +197,17 @@ class Home extends React.Component {
               <ControlledComponent
                 title={title_ctrlc}
                 users={data}
+                handleChangeSelectOption={this.handleChangeSelectOption}
+                titleSelect={textSelect}
+                value={value}
               />
+          </div>
+        );
+        case 'cofc':
+        return (
+          <div>
+            {start}<br />
+              <CompositionComponents title={title_cofc} />
           </div>
         );
       default:
