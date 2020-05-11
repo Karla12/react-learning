@@ -7,6 +7,7 @@ import LifeCycles from './LifeCycles';
 import HandlingEvents from './HandlingEvents';
 import UserCard from './UserCard';
 import ControlledComponent from './ControlledComponent';
+import CompositionComponents from './CompositionComponents';
 
 class Home extends React.Component {
 
@@ -55,6 +56,7 @@ class Home extends React.Component {
     const title_he = 'Handling Events Component';
     const title_cr = 'Conditional Rendering Component - Array and Keys';
     const title_ctrlc = 'Controlled Components';
+    const title_cofc = 'Composition Components';
 
     const userName = [
       'Evelyn', 'Karla', 'Vinco', 'Orbis'
@@ -122,6 +124,13 @@ class Home extends React.Component {
                     onClick={() => this.handleChangeOption('ctrlc')}
                   >
                     Controlled Components
+                  </Link><br />
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => this.handleChangeOption('cofc')}
+                  >
+                    Composition of components
                   </Link><br />
                   <a
                   className="App-link"
@@ -192,6 +201,13 @@ class Home extends React.Component {
                 titleSelect={textSelect}
                 value={value}
               />
+          </div>
+        );
+        case 'cofc':
+        return (
+          <div>
+            {start}<br />
+              <CompositionComponents title={title_cofc} />
           </div>
         );
       default:
