@@ -5,6 +5,7 @@ import ClassComponent from './ClassComponent';
 import FunctionalComponent from './FunctionalComponent';
 import LifeCycles from './LifeCycles';
 import HandlingEvents from './HandlingEvents';
+import UserCard from './UserCard';
 
 class Home extends React.Component {
 
@@ -27,6 +28,7 @@ class Home extends React.Component {
     const title_fc = 'Functional Component';
     const title_lc = 'Life Cycles Component';
     const title_he = 'Handling Events Component';
+    const title_cr = 'Conditional Rendering Component - Array and Keys';
 
     const userName = [
       'Evelyn', 'Karla', 'Vinco', 'Orbis'
@@ -78,6 +80,13 @@ class Home extends React.Component {
                   >
                     Handling Events
                   </Link><br />
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => this.handleChangeOption('cr')}
+                  >
+                    Conditional Rendering - Array and Keys
+                  </Link><br />
                   <a
                   className="App-link"
                   href="https://github.com/Karla12/react-learning/"
@@ -123,6 +132,16 @@ class Home extends React.Component {
             {start}<br />
               <HandlingEvents
                 title={title_he}
+              />
+          </div>
+        );
+      case 'cr':
+        return (
+          <div>
+            {start}<br />
+              <UserCard
+                title={title_cr}
+                users={userName}
               />
           </div>
         );
