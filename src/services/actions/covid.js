@@ -4,13 +4,7 @@ import {
 	FETCH_COVID_FAILURE
 } from './types';
 
-import { getInformationCovid } from '../apis/covid';
-
 export const fetchCovid = (information) => {
-	//const covid = getInformationCovid();
-
-
-	console.log('ACTIONS', information);
 	return {
 		type: FETCH_COVID,
 		payload: information
@@ -18,10 +12,6 @@ export const fetchCovid = (information) => {
 };
 
 export const fetchCovidSuccess = (information) => {
-	const covid = getInformationCovid();
-
-
-	console.log('ACTIONS', covid);
 	return {
 		type: FETCH_COVID_SUCCESS,
 		payload: {
