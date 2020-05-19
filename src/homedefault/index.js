@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import ClassComponent from './ClassComponent';
 import FunctionalComponent from './FunctionalComponent';
 import LifeCycles from './LifeCycles';
@@ -9,7 +9,7 @@ import UserCard from './UserCard';
 import ControlledComponent from './ControlledComponent';
 import CompositionComponents from './CompositionComponents';
 
-class Home extends React.Component {
+class HomeDefautl extends React.Component {
 
   constructor(props) {
     super(props);
@@ -248,4 +248,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default HomeDefautl;
