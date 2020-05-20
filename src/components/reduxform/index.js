@@ -51,8 +51,6 @@ let ReduxForm = props => {
 
   const { fetchCovid, covid, handleSubmit, pristine, reset, submitting, sintomas } = props;
 
-  console.log('FORM ', covid);
-
   return (
     <form onSubmit={handleSubmit}>
       <div className={classes.root}>
