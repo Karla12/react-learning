@@ -9,6 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ReduxForm from "../../components/reduxform";
 import { fetchCovid } from '../../services/actions';
+import ScrollableTabsButtonForce from '../sprinttres';
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 const optionsMenu = [
   {name:"Home",url:"/"},
   {name:"Sprint I",url:"/homedefault"},
-  {name:"Sprint II",url:"/reduxform"}
+  {name:"Sprint II",url:"/reduxform"},
+  {name:"Sprint III",url:"/sprinttres"}
 ];
 
 const ITEM_HEIGHT = 48;
@@ -141,6 +143,10 @@ function Home(props) {
                 fetchCovid={fetchCovid}
                 covid={covid}
               />
+            </Route>
+            <Route path="/sprinttres">
+              <h4> Sprint III</h4>
+              <ScrollableTabsButtonForce />
             </Route>
           </Switch>
         </Grid>
