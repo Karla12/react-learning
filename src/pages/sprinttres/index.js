@@ -40,7 +40,7 @@ function SingleLineGridList() {
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">shouldComponentUpdate</ListSubheader>
+          <ListSubheader component="div">useState</ListSubheader>
         </GridListTile>
         {data.map((tile,key) => (
           <GridListTile key={key}>
