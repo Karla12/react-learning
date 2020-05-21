@@ -9,7 +9,7 @@ import Menu from '@material-ui/core/Menu';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ReduxForm from "../../components/reduxform";
 import { fetchCovid } from '../../services/actions';
-import SingleLineGridList from '../sprinttres';
+import ScrollableTabsButtonForce from '../sprinttres';
 import {
   BrowserRouter as Router,
   Switch,
@@ -146,7 +146,7 @@ function Home(props) {
             </Route>
             <Route path="/sprinttres">
               <h4> Sprint III</h4>
-              <SingleLineGridList />
+              <ScrollableTabsButtonForce />
             </Route>
           </Switch>
         </Grid>
