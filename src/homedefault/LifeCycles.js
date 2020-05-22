@@ -9,14 +9,14 @@ class LifeCycles extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.state.name);
+		console.log('componentDidMount ', this.state.name);
 		this.setState({
 			name: 'component - Did - Mount'
 		});
 	}
 
 	componentWillUnmount() {
-		console.log(this.state.name);
+		console.log('componentWillUnmount ',this.state.name);
 		this.setState({
 			name: 'component - Will - Unmount'
 		});
@@ -27,17 +27,25 @@ class LifeCycles extends React.Component {
 			hover
 		} = this.state;
 		if (hover !== prevState.hover) {
-			console.log(this.state, prevState);
+			console.log('componentDidUpdate ',this.state, prevState);
 			this.setState({
 				name: 'component - Did - Update'
 			});
 		}
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('shouldComponentUpdate ', this.state.name, nextState.name);
+		if (this.state.name !== nextState.name) {
+			return true;
+		}
+		return false;
+	}
+
   	render() {
   		const { name } = this.state;
   		const { title } = this.props;
-  		console.log(name);
+  		console.log('RENDER ', name);
     	return (
     		<div>
     		<header className="App-header">
