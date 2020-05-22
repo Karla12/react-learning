@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const optionsMenu = [
-  {name:"Home",url:"/"},
   {name:"Sprint I",url:"/homedefault"},
   {name:"Sprint II",url:"/reduxform"},
   {name:"Sprint III",url:"/sprinttres"}
@@ -173,7 +172,6 @@ const mapStateToProps = (state) => {
       }
     }
   } = state;
-  console.log('MSTP', data);
   return {
     covid: data
   };

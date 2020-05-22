@@ -14,6 +14,7 @@ import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SingleLineGridList from '../../components/gridlist';
 import Scroll from '../../components/customhook';
+import UseMemoExercises from '../../components/usememo';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -78,8 +79,8 @@ function ScrollableTabsButtonForce() {
         >
           <Tab label="Scroll" icon={<VideoLabelIcon />} {...a11yProps(0)} />
           <Tab label="Favorites" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="React Memo" icon={<PersonPinIcon />} {...a11yProps(2)} />
           <Tab label="useMemo" icon={<HelpIcon />} {...a11yProps(3)} />
+          <Tab label="React Memo" icon={<PersonPinIcon />} {...a11yProps(2)} />
           <Tab label="shouldComponentUpdate" icon={<HelpIcon />} {...a11yProps(3)} />
         </Tabs>
       </AppBar>
@@ -90,7 +91,7 @@ function ScrollableTabsButtonForce() {
         <SingleLineGridList />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <UseMemoExercises />
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
