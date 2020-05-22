@@ -8,16 +8,17 @@ function Scroll() {
     height: '5000px',
   };
   const displayStyles = {
-    position: 'fixed',
+    flexGrow: 1,
     width: '100%',
-    top: '50%',
+    top: '100%',
     transform: 'translateY(-50%)',
-    fontSize: '20px',
+    fontSize: '15px',
     textAlign: 'center',
   }
   return (
     <div style={wrapperStyles}>
-      <div style={displayStyles}>
+      <div style={displayStyles}><br /><br /><br /><br /><br />
+      <br /><br /><br /><br />
         <Typography variant="h1" component="h2">
           {scrollPosition !== null ? scrollPosition : 0}
         </Typography>

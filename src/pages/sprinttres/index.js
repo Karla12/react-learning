@@ -4,14 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-import PersonPinIcon from '@material-ui/icons/PersonPin';
-import HelpIcon from '@material-ui/icons/Help';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import MemoryIcon from '@material-ui/icons/Memory';
+import Grid from '@material-ui/core/Grid';
 import SingleLineGridList from '../../components/gridlist';
 import Scroll from '../../components/customhook';
 import UseMemoExercises from '../../components/usememo';
@@ -50,11 +49,12 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+ root: {
     flexGrow: 1,
-    width: '100%',
-    backgroundColor: theme.palette.background.paper,
-  },
+    padding: theme.spacing(2),
+    margin: 'auto',
+    maxWidth: 500,
+  }
 }));
 
 function ScrollableTabsButtonForce() {
@@ -67,6 +67,9 @@ function ScrollableTabsButtonForce() {
 
   return (
     <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={12}>
+          <Grid item xs={12} sm={12}>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
@@ -79,9 +82,7 @@ function ScrollableTabsButtonForce() {
         >
           <Tab label="Scroll" icon={<VideoLabelIcon />} {...a11yProps(0)} />
           <Tab label="Favorites" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="useMemo" icon={<HelpIcon />} {...a11yProps(3)} />
-          <Tab label="React Memo" icon={<PersonPinIcon />} {...a11yProps(2)} />
-          <Tab label="shouldComponentUpdate" icon={<HelpIcon />} {...a11yProps(3)} />
+          <Tab label="useMemo" icon={<MemoryIcon />} {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -93,9 +94,9 @@ function ScrollableTabsButtonForce() {
       <TabPanel value={value} index={2}>
         <UseMemoExercises />
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
+      </Grid>
+      </Grid>
+      </Grid>
     </div>
   );
 }

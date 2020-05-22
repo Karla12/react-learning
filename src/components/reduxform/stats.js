@@ -57,7 +57,7 @@ function Stats(props) {
                       text = 'Deaths';
                     }
                     return (
-                    <Grid container spacing={2}>
+                    <Grid container spacing={2} key={key}>
                        <Grid item>
                         <ButtonBase className={classes.image}>
                           <img className={classes.img} alt="complex" src="https://i.picsum.photos/id/336/200/300.jpg?blur=2" />
